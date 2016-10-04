@@ -1,8 +1,11 @@
 <?php
 session_start(); 
+$_SESSION['user'] = $_POST['username'];
 if (!isset($_SESSION['user'])) {
 	header("index.php");
 }
+require('connector.php');
+
 ?>
 <html>
 <head>
@@ -16,7 +19,6 @@ if (!isset($_SESSION['user'])) {
     }
     .img{
         width:8%;
-        margin-left: 100px;
     }
     span{
         color: white;
@@ -37,9 +39,9 @@ if (!isset($_SESSION['user'])) {
             
         </div>
         <div class='pull-right' >
-		<div class="dropdown" style='padding-top:17px;'>
+		<div class="dropdown" style='padding-top:12px;'>
 		  <button class='btn btn-musichub' id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<span class="caret"></span>
+			<span class="glyphicon glyphicon-option-horizontal"></span>
 		  </button>
 		  <ul class="dropdown-menu" aria-labelledby="dLabel">
 			<li>View Profile</li>
@@ -51,7 +53,7 @@ if (!isset($_SESSION['user'])) {
         </div>
     </nav>
 	
-	<h1 class='text-center'>Welcome <?php echo '$_SESSION["user"]'?></h1>
+	<h1 class='text-center'>Welcome <?php echo $_SESSION["user"]?></h1>
 	<p class='text-center'>
 	</p>
 </body>

@@ -1,10 +1,10 @@
 <?php 
 require('connector.php');
 
-if (isset($_FORM['username']) && isset($_FORM['password']) && isset($_FORM['email'])) {
-    $username = $_FORM['username'];
-    $password = $_FORM['password'];
-    $email = $_FORM['email'];
+if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
 
     $qry = mysqli_query($sql, "SELECT * FROM soundcloud WHERE userName='".$username."'AND userPass='".$password."' AND email='".$email."'");
 
@@ -31,6 +31,11 @@ if (isset($_FORM['username']) && isset($_FORM['password']) && isset($_FORM['emai
     .img{
         width: 8%;
    }
+   .gray{
+		color: gray;
+		margin-left:10px;
+		margin-right:10px;
+   }
 </style>
 </head>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -44,18 +49,36 @@ if (isset($_FORM['username']) && isset($_FORM['password']) && isset($_FORM['emai
         </div>
         <div class='pull-right' style='padding-top:7px;'>
              <button class='btn btn-musichub' data-toggle='modal' data-target='#myModal'><span>Sign In</span></button> <span class='gray'>or</span>
-            <button class='btn btn-primary' data-toggle='modal' data-target='#myModal'>Create Account</button>
+            <button class='btn btn-primary' data-toggle='modal' data-target='#myModal1'>Create Account</button>
         </div>
         </div>
     </nav>
 
+	 <div id='myModal1' class='modal fade' role='dialog'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+							
+						
+                <form method='POST' action='createAccount.php' autocomplete='off'>
+					<br>
+                    <input type='text' require='required' name='username' placeholder='Username' class='form-control'>
+                    <input type='password' require='required' name='password' placeholder='Password' class='form-control'>
+					<input type='password' require='required' name='password2' placeholder='Confirm Password' class='form-control'>
+					<input type='text' require='require' name='email' placeholder='Email Address' class='form-control'>
+					<br>
+                    <button type='submit' class='btn btn-primary' name='submit'>Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+	 
     <div id='myModal' class='modal fade' role='dialog'>
         <div class='modal-dialog'>
             <div class='modal-content'>
                 <form method='POST' action='homepage.php' autocomplete='off'>
 					<br>
-                    <input type='text' require='required' name='username' placeholder='Username or Email' class='form-control'>
-                    <input type='password' require='required' name='password' placeholder='Password' class='form-control'>
+						<input type='text' require='require' name='username' placeholder='Username' class='form-control'>
+						<input type='password' require='require' name='password' placeholder='Password' class='form-control'>
 					<br>
                     <button type='submit' class='btn btn-primary' >Sign In</button>
                 </form>
