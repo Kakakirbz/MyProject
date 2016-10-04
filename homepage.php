@@ -36,18 +36,25 @@ if (!isset($_SESSION['user'])) {
             <span class='title'>MUSIC HUB</span>
             
         </div>
-        <div class='pull-right' style='padding-top:7px;'>
-             <button class='btn btn-musichub' data-toggle='modal' data-target='#myModal'><span>Sign In</span></button> <span class='gray'>or</span>
-            <button class='btn btn-primary' data-toggle='modal' data-target='#myModal'>Create Account</button>
+        <div class='pull-right' >
+		<div class="dropdown" style='padding-top:17px;'>
+		  <button class='btn btn-musichub' id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" aria-labelledby="dLabel">
+			<li>View Profile</li>
+			<a href='logout.php'><li>Sign Out</li></a>
+		  </ul>
+		</div>
+             
         </div>
         </div>
     </nav>
-	<h1 class='text-center'></h1>
+	
+	<h1 class='text-center'>Welcome <?php echo '$_SESSION["user"]'?></h1>
 	<p class='text-center'>
-		<a href="logout.php">
-			<button class='btn btn-sm btn-danger'>SIGN OUT!</button>
-			
-		</a>
 	</p>
 </body>
 </html>
+<script src='js/jquery.js'></script>
+<script src='js/bootstrap.min.js'></script>
