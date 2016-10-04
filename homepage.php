@@ -39,15 +39,15 @@ require('connector.php');
             
         </div>
         <div class='pull-right' >
-		<div class="dropdown" style='padding-top:12px;'>
-		  <button class='btn btn-musichub' id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<span class="glyphicon glyphicon-option-horizontal"></span>
-		  </button>
-		  <ul class="dropdown-menu" aria-labelledby="dLabel">
-			<li>View Profile</li>
-			<a href='logout.php'><li>Sign Out</li></a>
-		  </ul>
-		</div>
+			<div class="dropdown" style='padding-top:12px;'>
+			  <button class='btn btn-musichub' id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="glyphicon glyphicon-option-horizontal"></span>
+			  </button>
+			  <ul class="dropdown-menu" aria-labelledby="dLabel">
+				<li>View Profile</li>
+				<a href='logout.php'><li>Sign Out</li></a>
+			  </ul>
+			</div>
              
         </div>
         </div>
